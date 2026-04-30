@@ -1,5 +1,6 @@
 export interface Product {
   id: number;
+  type: string;
   name: string;
   slug: string;
   permalink: string;
@@ -22,6 +23,7 @@ export interface Product {
     name: string;
     slug: string;
   }>;
+  attributes?: any[];
   prices: {
     price: string;
     regular_price: string;

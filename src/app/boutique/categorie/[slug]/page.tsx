@@ -139,7 +139,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ) : displaySubcategories.length > 0 ? (
           <div className="space-y-16 mt-8">
             {displaySubcategories.map(subCat => {
-                const subProducts = products.filter(p => p.categories.some(c => c.id === subCat.id));
+                const subProducts = products.filter(p => p.categories.some((c: { id: number }) => c.id === subCat.id));
                 if (subProducts.length === 0) return null;
                 
                 return (
@@ -162,7 +162,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               if (currentCategory?.slug === 'savons') return null;
 
               const childCatIds = displaySubcategories.map(c => c.id);
-              const uncategorizedProducts = products.filter(p => !p.categories.some(c => childCatIds.includes(c.id)) && p.categories.some(c => c.id === currentCategory?.id));
+              const uncategorizedProducts = products.filter(p => !p.categories.some((c: { id: number }) => childCatIds.includes(c.id)) && p.categories.some((c: { id: number }) => c.id === currentCategory?.id));
               
               if (uncategorizedProducts.length === 0) return null;
               
