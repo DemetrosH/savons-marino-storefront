@@ -77,7 +77,7 @@ export default function SurMesurePage() {
       <section className="relative h-[50vh] min-h-[400px] w-full bg-muted flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(https://www.savonsmarino.ca/wp-content/uploads/2023/07/IMG_5521.webp)` }} // Using one of the nice custom soaps for hero
+          style={{ backgroundImage: `url(https://www.savonsmarino.ca/wp-content/uploads/2023/07/9ED41FF2-79F9-4CF6-82B4-76750E603DB2.jpg)` }} // Using specific user requested image
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto pt-32 md:pt-0">
