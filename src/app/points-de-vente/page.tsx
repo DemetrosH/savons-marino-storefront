@@ -5,7 +5,7 @@ import PointsDeVenteClient from "@/components/PointsDeVenteClient";
 async function getPointsDeVente() {
   try {
     const res = await fetch('https://www.savonsmarino.ca/wp-json/wp/v2/pointe_de_vente?per_page=100', {
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600, tags: ['points-de-vente'] }
     });
     if (!res.ok) return [];
     return res.json();
