@@ -51,14 +51,14 @@ function BoutiqueGridContent({ products, categories }: BoutiqueGridProps) {
   return (
     <div className="w-full" id="boutique-grid-top">
       {/* Horizontal Pill Filters */}
-      <div className="w-full overflow-x-auto pb-4 mb-10 no-scrollbar">
-        <div className="flex items-center justify-start md:justify-center gap-3 px-4 min-w-max">
+      <div className="w-full overflow-x-auto pb-6 mb-8 no-scrollbar snap-x snap-proximity">
+        <div className="flex items-center justify-start lg:justify-center gap-3 px-4 w-max min-w-full">
           {displayCategories.map((category: any) => (
             <Link
               key={category.id}
               href={`/boutique?cat=${category.slug}`}
               scroll={false}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 active:scale-95 touch-manipulation cursor-pointer relative z-30 ${
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 active:scale-95 cursor-pointer relative z-30 snap-center ${
                 activeCategory === category.slug
                   ? "bg-primary text-primary-foreground shadow-md scale-105"
                   : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"

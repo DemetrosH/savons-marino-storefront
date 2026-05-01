@@ -91,16 +91,16 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Navigation Buttons - Hidden on mobile where swipe is natural */}
       <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-sm transition-all"
+        className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-sm transition-all"
         onClick={scrollPrev}
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-8 h-8" />
       </button>
       <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-sm transition-all"
+        className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-sm transition-all"
         onClick={scrollNext}
         aria-label="Next slide"
       >
