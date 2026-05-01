@@ -13,7 +13,9 @@ export async function POST(request: NextRequest) {
 
   try {
     if (tag) {
-      revalidateTag(tag);
+      // In Next.js 16, revalidateTag requires a second argument.
+      // { expire: 0 } ensures immediate expiration for webhooks.
+      revalidateTag(tag, { expire: 0 });
       return NextResponse.json({ revalidated: true, tag, now: Date.now() });
     }
 
