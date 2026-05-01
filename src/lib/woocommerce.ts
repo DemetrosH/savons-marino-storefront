@@ -55,7 +55,7 @@ export interface Category {
 export async function getProducts(): Promise<Product[]> {
   try {
     const res = await fetch('https://savonsmarino.ca/wp-json/wc/store/products?per_page=100', {
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600, tags: ['products'] }
     });
     
     if (!res.ok) throw new Error(`Failed to fetch products: ${res.status}`);
@@ -70,7 +70,7 @@ export async function getProducts(): Promise<Product[]> {
 export async function getCategories(): Promise<Category[]> {
   try {
     const res = await fetch('https://savonsmarino.ca/wp-json/wc/store/products/categories?per_page=100', {
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600, tags: ['categories'] }
     });
     
     if (!res.ok) throw new Error(`Failed to fetch categories: ${res.status}`);
@@ -90,7 +90,7 @@ export async function getProductsByCategorySlug(slug: string): Promise<Product[]
     if (!category) return [];
 
     const res = await fetch(`https://savonsmarino.ca/wp-json/wc/store/products?category=${category.id}&per_page=100`, {
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600, tags: ['products'] }
     });
     
     if (!res.ok) throw new Error(`Failed to fetch products for category: ${res.status}`);
@@ -106,7 +106,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
   try {
     // The store API allows searching by slug
     const res = await fetch(`https://savonsmarino.ca/wp-json/wc/store/products?slug=${slug}`, {
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600, tags: ['products'] }
     });
     
     if (!res.ok) throw new Error(`Failed to fetch product: ${res.status}`);
@@ -122,7 +122,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 export async function searchProducts(query: string): Promise<Product[]> {
   try {
     const res = await fetch(`https://savonsmarino.ca/wp-json/wc/store/products?search=${encodeURIComponent(query)}&per_page=100`, {
-      next: { revalidate: 60 }
+      next: { revalidate: 3600, tags: ['products'] }
     });
     
     if (!res.ok) throw new Error(`Failed to search products: ${res.status}`);

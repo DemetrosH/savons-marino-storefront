@@ -20,7 +20,7 @@ export interface WordPressPage {
 export async function getPageBySlug(slug: string): Promise<WordPressPage | null> {
   try {
     const res = await fetch(`https://savonsmarino.ca/wp-json/wp/v2/pages?slug=${slug}`, {
-      next: { revalidate: 3600 } // Cache for 1 hour
+      next: { revalidate: 3600, tags: ['pages'] } // Cache for 1 hour
     });
     
     if (!res.ok) throw new Error(`Failed to fetch page: ${res.status}`);
